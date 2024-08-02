@@ -1,7 +1,7 @@
 import 'package:c11_exam_mon_online/moody/emoji_item.dart';
 import 'package:c11_exam_mon_online/moody/exercise_item.dart';
 import 'package:c11_exam_mon_online/moody/feature_item.dart';
-import 'package:c11_exam_mon_online/moody/new_department.dart';
+import 'package:c11_exam_mon_online/new_department.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -77,13 +77,19 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 30),
                 child: Column(
                   children: [
-                    NewDepartmentItem(department: "Feature"),
+                    NewDepartmentItem(
+                      department: "Feature",
+                      color: Color(0xff027A48),
+                    ),
                     FeatureItem(),
                   ],
                 )),
             Padding(
               padding: const EdgeInsets.only(top: 25),
-              child: NewDepartmentItem(department: "Exercise"),
+              child: NewDepartmentItem(
+                department: "Exercise",
+                color: Color(0xff027A48),
+              ),
             ),
             Padding(
                 padding: const EdgeInsets.only(top: 20),
@@ -119,7 +125,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-          iconSize: 30,
+          iconSize: 60,
           showSelectedLabels: true,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
@@ -135,7 +141,6 @@ class HomeScreen extends StatelessWidget {
             BottomNavigationBarItem(
                 icon: ImageIcon(
                   AssetImage("assets/images/iconBottom2.png"),
-                  size: 40,
                 ),
                 label: ""),
             BottomNavigationBarItem(
