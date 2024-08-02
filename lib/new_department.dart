@@ -1,10 +1,14 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewDepartmentItem extends StatelessWidget {
-  NewDepartmentItem({super.key, required String this.department});
+  NewDepartmentItem(
+      {super.key, required String this.department, required Color this.color});
 
   String department;
+  Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +24,13 @@ class NewDepartmentItem extends StatelessWidget {
           style: GoogleFonts.inter(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: Color(0xff027A48)),
+            color: color,
+          ),
         ),
         Icon(
           Icons.chevron_right,
-          color: Color(0xff027A48),
-        )
+          color: color,
+        ),
       ],
     );
   }
