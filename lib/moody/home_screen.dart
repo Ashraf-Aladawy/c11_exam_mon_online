@@ -1,9 +1,13 @@
 import 'package:c11_exam_mon_online/moody/emoji_item.dart';
+import 'package:c11_exam_mon_online/moody/exercise_item.dart';
+import 'package:c11_exam_mon_online/moody/feature_item.dart';
+import 'package:c11_exam_mon_online/moody/new_department.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
   static const String routeName="HomeScreen";
@@ -60,20 +64,93 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 children: [
-                  EmojiItem(image: "assets/images/Frame1.png", text: "Love"),
+                  Container(
+                      child: EmojiItem(
+                          image: "assets/images/Frame1.png", text: "Love")),
                   EmojiItem(image: "assets/images/Frame2.png", text: "Cool"),
                   EmojiItem(image: "assets/images/Frame3.png", text: "Happy"),
                   EmojiItem(image: "assets/images/Frame4.png", text: "Sad"),
                 ],
               ),
             ),
-
-
-
+            Padding(
+                padding: const EdgeInsets.only(top: 30),
+                child: Column(
+                  children: [
+                    NewDepartmentItem(department: "Feature"),
+                    FeatureItem(),
+                  ],
+                )),
+            Padding(
+              padding: const EdgeInsets.only(top: 25),
+              child: NewDepartmentItem(department: "Exercise"),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        ExerciseItem(text: "Relaxation",
+                            path: "assets/images/exercise1.png",
+                            color: Color(0xffF9F5FF)),
+                        SizedBox(width: 15,),
+                        ExerciseItem(text: "Meditation",
+                            path: "assets/images/exercise2.png",
+                            color: Color(0xffFDF2FA)),
+                      ],
+                    ),
+                    SizedBox(height: 15,),
+                    Row(
+                      children: [
+                        ExerciseItem(text: "Beathing",
+                            path: "assets/images/exercise3.png",
+                            color: Color(0xffFFFAF5)),
+                        SizedBox(width: 15,),
+                        ExerciseItem(text: "Yoga",
+                            path: "assets/images/exercise4.png",
+                            color: Color(0xffF0F9FF)),
+                      ],
+                    ),
+                  ],
+                )
+            ),
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          iconSize: 30,
+          showSelectedLabels: true,
+          showUnselectedLabels: false,
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Color(0xff027A48),
+          unselectedItemColor: Colors.black,
 
+          items:
+          [BottomNavigationBarItem(
+            icon: ImageIcon(
+              AssetImage("assets/images/homeBottom.png"), size: 40,),
+            label: "",
+          ),
+            BottomNavigationBarItem(
+                icon: ImageIcon(
+                  AssetImage("assets/images/iconBottom2.png"),
+                  size: 40,
+                ),
+                label: ""),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage("assets/images/calendarBottom.png"),
+              ),
+              label: "",
+            ),
+            BottomNavigationBarItem(
+              icon: ImageIcon(
+                AssetImage("assets/images/personalBottom.png"),
+              ),
+              label: "",
+            ),
+          ]),
     );
   }
 }

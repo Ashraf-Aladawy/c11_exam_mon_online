@@ -10,8 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner:false,
-      home: HomeScreen(),
-
+      home: DefaultTabController(
+        length: 3,
+        child: HomeScreen(),
+      ),
     );
   }
 }
